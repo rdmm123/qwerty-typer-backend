@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  qwerty:
+    command: ./entrypoint.dev.sh
+    build:
+      context: .
+      args:
+        - UID
+    restart: always
+    tty: true
+    volumes:
+      - .:/app
+    environment:
+      - DJANGO_ENV=$ENV
+    ports:
+      - 8005:8000

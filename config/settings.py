@@ -28,10 +28,9 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY') if ENV == 'prod' else config('DJANGO
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = ENV != 'prod'
 
-ALLOWED_HOSTS = []
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:   
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+ALLOWED_HOSTS = ['*']
+if ENV == 'prod':
+    ALLOWED_HOSTS = ['qtbackend.tk', '18.116.117.73', 'ec2-18-116-117-73.us-east-2.compute.amazonaws.com']
 
 # Application definition
 
@@ -41,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # 'django.contrib.staticfiles',
 
     #? 3rd party
     'rest_framework',
