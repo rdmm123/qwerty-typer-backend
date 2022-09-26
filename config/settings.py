@@ -29,8 +29,9 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY') if ENV == 'prod' else config('DJANGO
 DEBUG = ENV != 'prod'
 
 ALLOWED_HOSTS = []
-if ENV == 'prod':
-    ALLOWED_HOSTS += ['onrender.com']
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:   
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
