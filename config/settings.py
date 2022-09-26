@@ -161,5 +161,5 @@ ALLOWED_LANGUAGES = {
 
 QUOTES_API_URL = 'https://quotes15.p.rapidapi.com/quotes/random/'
 QUOTES_API_HOST = 'quotes15.p.rapidapi.com'
-QUOTES_API_KEY = config('QUOTES_API_KEY')
+QUOTES_API_KEY = config('QUOTES_API_KEY') if ENV != 'prod' else os.getenv('QUOTES_API_KEY')
 QUOTES_API_TIMEOUT = 1
