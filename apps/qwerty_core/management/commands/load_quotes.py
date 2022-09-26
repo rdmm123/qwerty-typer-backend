@@ -31,7 +31,10 @@ class Command(BaseCommand):
                 }
 
                 resp = requests.get(settings.QUOTES_API_URL, headers=headers, params=querystring)
-
+                if resp.status_code != 200:
+                    self.stdout.write(self.style.ERROR(f'Error searching quotes for {lang}'))
+                    continue
+                
                 data = resp.json()
                 quote = self.format_quote(data['content'])
 
