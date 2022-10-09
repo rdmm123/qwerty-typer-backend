@@ -15,11 +15,7 @@ services:
       - .:/app
     env_file:
       - ./.env
-  nginx:
-    image: nginx:latest
-    restart: always
-    build: ./nginx
-    ports:
-      - 80:80
-    depends_on:
-      - qwerty  
+networks:
+  default:
+      name: main_network
+      external: True

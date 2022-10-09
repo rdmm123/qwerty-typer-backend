@@ -30,7 +30,7 @@ DEBUG = ENV != 'prod'
 
 ALLOWED_HOSTS = ['*']
 if ENV == 'prod':
-    ALLOWED_HOSTS = ['qtbackend.tk', '18.116.117.73', 'ec2-18-116-117-73.us-east-2.compute.amazonaws.com']
+    ALLOWED_HOSTS = ['qwerty-backend.duckdns.org', '18.116.117.73', 'ec2-18-116-117-73.us-east-2.compute.amazonaws.com']
 
 # Application definition
 
