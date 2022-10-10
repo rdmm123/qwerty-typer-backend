@@ -27,5 +27,6 @@ class RandomText(APIView):
 
 
 class AllowedLanguages(APIView):
+    
     def get(self, request, format=None):
         return Response(settings.ALLOWED_LANGUAGES)
